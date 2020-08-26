@@ -43,7 +43,7 @@ class LatLng
     /**
      * Create a new LatLng object from the given latitude and longitude.
      */
-    public function __construct(float $lat, float $lng, int $height, RefEll $refEll)
+    public function __construct(float $lat, float $lng, float $height, RefEll $refEll)
     {
         $this->lat = $lat;
         $this->lng = $lng;
@@ -61,15 +61,15 @@ class LatLng
 
     public function getLat(): float
     {
-        return round($this->lat, 5);
+        return $this->lat;
     }
 
     public function getLng(): float
     {
-        return round($this->lng, 5);
+        return $this->lng;
     }
 
-    public function getH(): int
+    public function getH(): float
     {
         return $this->h;
     }
@@ -459,8 +459,8 @@ class LatLng
         $V = $v / 6 * ($cosLat ** 3) * ($v / $p - $tanLatSq);
         $VI = $v / 120 * ($cosLat ** 5) * (5 - 18 * $tanLatSq + ($tanLatSq ** 2) + 14 * $hSq - 58 * $tanLatSq * $hSq);
 
-        $E = (int) round($originEasting + $IV * $longMinusOrigin + $V * ($longMinusOrigin ** 3) + $VI * ($longMinusOrigin ** 5));
-        $N = (int) round($I + $II * ($longMinusOrigin ** 2) + $III * ($longMinusOrigin ** 4) + $IIIA * ($longMinusOrigin ** 6));
+        $E = $originEasting + $IV * $longMinusOrigin + $V * ($longMinusOrigin ** 3) + $VI * ($longMinusOrigin ** 5);
+        $N = $I + $II * ($longMinusOrigin ** 2) + $III * ($longMinusOrigin ** 4) + $IIIA * ($longMinusOrigin ** 6);
 
         return ['E' => $E, 'N' => $N];
     }

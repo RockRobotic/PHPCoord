@@ -28,7 +28,7 @@ class UTMRef extends TransverseMercator
     /**
      * Create a new object representing a UTM reference.
      */
-    public function __construct(int $x, int $y, int $z, string $latZone, int $lngZone)
+    public function __construct(float $x, float $y, float $z, string $latZone, int $lngZone)
     {
         $this->latZone = $latZone;
         $this->lngZone = $lngZone;
@@ -56,12 +56,12 @@ class UTMRef extends TransverseMercator
         return 0.9996;
     }
 
-    public function getOriginNorthing(): int
+    public function getOriginNorthing(): float
     {
         return 0;
     }
 
-    public function getOriginEasting(): int
+    public function getOriginEasting(): float
     {
         return 500000;
     }
