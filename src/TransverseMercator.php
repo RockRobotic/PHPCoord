@@ -12,19 +12,19 @@ abstract class TransverseMercator
 {
     /**
      * X.
-     * @var int
+     * @var float
      */
     protected $x;
 
     /**
      * Y.
-     * @var int
+     * @var float
      */
     protected $y;
 
     /**
      * H.
-     * @var int
+     * @var float
      */
     protected $h;
 
@@ -37,7 +37,7 @@ abstract class TransverseMercator
     /**
      * Cartesian constructor.
      */
-    public function __construct(int $x, int $y, int $h, RefEll $refEll)
+    public function __construct(float $x, float $y, float $h, RefEll $refEll)
     {
         $this->x = $x;
         $this->y = $y;
@@ -53,17 +53,17 @@ abstract class TransverseMercator
         return "({$this->x}, {$this->y}, {$this->h})";
     }
 
-    public function getX(): int
+    public function getX(): float
     {
         return $this->x;
     }
 
-    public function getY(): int
+    public function getY(): float
     {
         return $this->y;
     }
 
-    public function getH(): int
+    public function getH(): float
     {
         return $this->h;
     }
@@ -81,12 +81,12 @@ abstract class TransverseMercator
     /**
      * Northing of true origin.
      */
-    abstract public function getOriginNorthing(): int;
+    abstract public function getOriginNorthing(): float;
 
     /**
      * Easting of true origin.
      */
-    abstract public function getOriginEasting(): int;
+    abstract public function getOriginEasting(): float;
 
     /**
      * Latitude of true origin.
